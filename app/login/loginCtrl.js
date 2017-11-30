@@ -20,7 +20,7 @@ nihol.controller("LoginCtrl", function ($scope, $uibModalInstance, $http, $locat
         if (user != null) {
             activeUser.login(user);
             $uibModalInstance.close("Logged-in");
-            $location.path("/sale")
+            $location.path("/main")
         } else {
             $scope.failedAttempt = true;
         }

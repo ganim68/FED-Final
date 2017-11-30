@@ -1,27 +1,51 @@
 <!--The menu-->
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-default" role="navigation" ng-controller="NavCtrl">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">ניהול עסק</a>
+        </div>
+    
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse" ng-controller="NavCtrl">
+            <ul class="nav navbar-nav">
+                <li ng-show="isLoggedIn()"><a href="#!/main">ראשי</a></li>
+                <li ng-show="isLoggedIn()"><a href="#!/sale">מכירות</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li ng-hide="isLoggedIn()"><a href="#">Login</a></li>
+                <li ng-show="isLoggedIn()"><a href="#">Logout</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </nav>
+<!--<nav class="navbar navbar-inverse">
     <a class="navbar-brand" href="#!">ראשי</a>
     <ul class="nav navbar-nav pull-right">
         <li ng-class="{active : isActive('sale')}">
             <a href="#!/sale">מכירות</a>
         </li>
         <li ng-class="{active : isActive('main')}">
-            <a href="#!">Mian</a>
+            <a href="#!/main">ראשי</a>
         </li>
-        <li ng-class="{active : isActive('main')}">
+        <li ng-class="{active : isActive('aaa')}">
             <a href="#!">מלאי</a>
         </li>
-        <li ng-class="{active : isActive('main')}">
+        <li ng-class="{active : isActive('bbb')}">
                 <a href="#!">הוספת משתמש</a>
         </li>
-        <li ng-class="{active : isActive('main')}">
+        <li ng-class="{active : isActive('ccc')}">
                 <a href="#!">פריטים</a>
-            </li>        <li ng-class="{active : isActive('main')}">
+            </li>        <li ng-class="{active : isActive('ddd')}">
             <a href="#!">Mian</a>
         </li>
-        <li ng-class="{active : isActive('main')}">
+        <li ng-class="{active : isActive('eee')}">
                 <a href="#!">לקוחות</a>
             </li>
 
     </ul>
-</nav>
+</nav>-->

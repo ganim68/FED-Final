@@ -3,3 +3,14 @@ body,navbar
         direction: rtl;
         text-align: right;
     }
+    .navbar {
+        margin-bottom: 0;
+    }
+    
+    .navbar-brand {
+        font-family: "Pacifico";
+    }
+    
+    .jumbotron .container h1 {
+        font-family: "Pacifico";
+        font-size: 4em;    
