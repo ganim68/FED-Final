@@ -1,0 +1,16 @@
+[
+    {
+        "firstName":"Ganim",
+        "lastName": "Gadban",
+        "email":"ganim@ganim.com",
+        "password": "gan123",
+        "manager":"true"
+    },
+    {
+        "firstName":"Anaam",
+        "lastName": "Gadban",
+        "email":"anaam@ganim.com",
+        "password": "ana123",
+        "manager":"false"
+    }
+]
