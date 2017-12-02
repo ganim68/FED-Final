@@ -13,4 +13,12 @@ nihol.config(function($routeProvider) {
         templateUrl: "app/main/main.html",
         controller: "mainCtrl"
     })
+    .when("/users", {
+        templateUrl: "app/users/users.html",
+        controller: "usersCtrl"
+    })
+    .otherwise({
+        templateUrl: "app/home/home.html",
+        controller: "HomeCtrl"
+    });
  });

@@ -1,6 +1,6 @@
 nihol.controller("LoginCtrl", function ($scope, $uibModalInstance, $http, $location, activeUser, User) {
 
-  // TODO: Detele this
+  // TO DO: Detele this
     $scope.uname = "Ganim";
     $scope.password = "gan123";
 
@@ -9,8 +9,6 @@ nihol.controller("LoginCtrl", function ($scope, $uibModalInstance, $http, $locat
         for (var i = 0; i < response.data.length; i++) {
             $scope.users.push(new User(response.data[i]));
         }
-
-        //console.log(JSON.stringify($scope.users));
     });
 
     $scope.failedAttempt = false;
