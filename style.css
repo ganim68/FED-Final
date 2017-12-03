@@ -13,4 +13,14 @@ body,navbar
     
     .jumbotron .container h1 {
         font-family: "Pacifico";
-        font-size: 4em;    
+        font-size: 4em; 
+    }
+    .container{
+        margin-top: 15px;
+    }
+    .user-form{
+        width: 40%;
+    }
+    .date{
+        margin-right: 20%;
+    }

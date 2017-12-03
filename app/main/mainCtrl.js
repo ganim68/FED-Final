@@ -17,5 +17,6 @@ nihol.controller("mainCtrl",function($scope,$location,activeUser,User){
     $scope.sales=function()
     {
       $location.path("/sale");
-    }    
+    }
+   
 })

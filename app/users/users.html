@@ -1,62 +1,112 @@
-users page <br>
+users page
+<br>
+<h4 class="date">{{ddd |date:"dd/MM/yyyy"}}</h4>
+<a class="btn btn-default btn-lg" ng-click="back();">חזרה</a>
 <a class="btn btn-default btn-lg" ng-click="proc=false;">הוספת משתמש</a>
 <a class="btn btn-default btn-lg" ng-click="proc=true;">עדכון משתמש</a>
-<div ng-show="proc" class="container ">
-    <select >
-        <option value="">בחר משתמש</option>
-        <option ng-repeat="user in users" ng-value="{{user.firstName}}">{{user.firstName}}</option>
+
+                 <!--User Update-->
+<div ng-show="proc" class="container user-form">
+    <select ng-model="selectedUser" ng-options="x.firstName for x in users">
+        <!--<option value="">בחר משתמש</option>
+         <option ng-repeat="user in users" ng-value="{{getUser(user.firstName)}}">{{user.firstName}}</option> -->
     </select>
+    <div>
+        <form class="form-horizontal ">
+            <div class="form-group">
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="fsname" placeholder="Enter first name" ng-model="selectedUser.firstName">
+                </div>
+                <label class="control-label col-sm-2" for="fsname">שם פרטי :</label>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-10">
+                    <input type="texe" class="form-control" id="lnm" placeholder="Enter last name" ng-model="selectedUser.lastName">
+                </div>
+                <label class="control-label col-sm-2" for="lnm">שם משפחה :</label>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="eml" placeholder="Enter email" ng-model="selectedUser.email">
+                </div>
+                <label class="control-label col-sm-2" for="eml">דואר אלקטרוני</label>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="pwd" placeholder="הזן סיסמה" ng-model="selectedUser.password">
+                </div>
+                <label class="control-label col-sm-2" for="pwd">סיסמה :</label>
+            </div>
+            <div class="form-group">
+
+                <div class="col-sm-10">
+                    <input type="checkbox" class="form-control" id="mng" placeholder="" ng-model="selectedUser.manager">
+                </div>
+                <label class="control-label col-sm-2" for="mng">מנהל כן/לא:</label>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="summit" class="btn btn-default pull-right" ng-click="update(selectedUser)">עדכן</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
 </div>
 
+            <!--User add-->
+<div ng-show="!proc" class="container user-form">
+    <form class="form-horizontal">
+        <div class="form-group">
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="fsname" placeholder="Enter first name" ng-model="tmp.firstName">
+            </div>
+            <label class="control-label col-sm-2" for="fsname">שם פרטי :</label>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-10">
+                <input type="texe" class="form-control" id="lnm" placeholder="Enter last name" ng-model="tmp.lastName">
+            </div>
+            <label class="control-label col-sm-2" for="lnm">שם משפחה :</label>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-10">
+                <input type="email" class="form-control" id="eml" placeholder="Enter email" ng-model="tmp.email">
+            </div>
+            <label class="control-label col-sm-2" for="eml">דואר אלקטרוני</label>
+        </div>
+        <div class="form-group">
 
-<div ng-show="!proc" class="container">
-        <form class="form-horizontal">
-                <div class="form-group">
-                    <label class="control-label col-sm-2" for="fsname">שם פרטי :</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control"   id="fsname" placeholder="Enter first name" ng-model="tmp.firstName">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-sm-2" for="lnm">שם משפחה :</label>
-                    <div class="col-sm-10">
-                        <input type="texe" class="form-control" id="lnm" placeholder="Enter last name" ng-model="tmp.lastName">
-                    </div>
-                </div>
-                <div class="form-group">
-                        <label class="control-label col-sm-2" for="eml">דואר אלקטרוני</label>
-                        <div class="col-sm-10">
-                            <input type="email" class="form-control" id="eml" placeholder="Enter email" ng-model="tmp.email">
-                        </div>
-                </div>
-                <div class="form-group">
-                            <label class="control-label col-sm-2" for="pwd">סיסמה :</label>
-                            <div class="col-sm-10">
-                                <input type="password" class="form-control" id="pwd" placeholder="הזן סיסמה" ng-model="tmp.password">
-                            </div>
-                </div>
-                <div class="form-group">
-                        <label class="control-label col-sm-2" for="rpwd">אימות סיסמה :</label>
-                        <div class="col-sm-10">
-                            <input type="password" class="form-control" id="rpwd" placeholder="חזר על הסיסמה" ng-model="password">
-                        </div>
-                </div>
-                <div class="form-group">
-                        <label class="control-label col-sm-2" for="mng">מנהל כן/לא:</label>
-                        <div class="col-sm-10">
-                            <input type="checkbox" class="form-control" id="mng" placeholder="" ng-model="tmp.manager">
-                        </div>
-               </div>
-               
-                <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <button type="summit" class="btn btn-default pull-right" ng-click="add()">הוסף</button>
-                    </div>
-                </div>
-            </form>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="pwd" placeholder="הזן סיסמה" ng-model="tmp.password">
+            </div>
+            <label class="control-label col-sm-2" for="pwd">סיסמה :</label>
+        </div>
+        <div class="form-group">
+
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="rpwd" placeholder="חזר על הסיסמה" ng-model="password">
+            </div>
+            <label class="control-label col-sm-2" for="rpwd">אימות סיסמה :</label>
+        </div>
+        <div class="form-group">
+
+            <div class="col-sm-10">
+                <input type="checkbox" class="form-control" id="mng" placeholder="" ng-model="tmp.manager">
+            </div>
+            <label class="control-label col-sm-2" for="mng">מנהל כן/לא:</label>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="summit" class="btn btn-default pull-right" ng-click="add()">הוסף</button>
+            </div>
+        </div>
+    </form>
 </div>
-{{tmp.firstName + " " +tmp.lastName}} <br>
-{{tmp.email}} <br>
-{{tmp.password}} <br>
-{{password}} <br>
-{{tmp.manager}}
+{{tmp.firstName + " " +tmp.lastName}}
+<br> {{tmp.email}}
+<br> {{tmp.password}}
+<br> {{password}}
+<br> {{tmp.manager}}
