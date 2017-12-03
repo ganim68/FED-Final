@@ -1,6 +1,13 @@
 <!--<nihol-navbar></nihol-navbar>-->
-<h2>עמוד ראשי</h2>
+<div class="jumbotron">
+<div class="container">
+    <h4 class="date">{{ddd |date:'yyyy-MM-dd HH:mm:ss '}}</h4>
+    <h2>עמוד ראשי</h2>
 <h3>{{x +" "+ name}}</h3>
+<br>{{"Manager :" + manager}}
+</div>
+</div>
+
 <a class="btn btn-default btn-lg" ng-click="logout()">Logout</a>
 <a class="btn btn-default btn-lg" ng-click="sales()">מכירות</a>
 <a class="btn btn-default btn-lg" ng-click="mlai()">קליטת מלאי</a>

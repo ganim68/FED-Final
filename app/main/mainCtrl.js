@@ -1,9 +1,9 @@
-nihol.controller("mainCtrl",function($scope,$location,activeUser,User){
+nihol.controller("mainCtrl",function($scope, $location,activeUser,User){
   
   $scope.x="Welcome";
   $scope.y=activeUser.get();
   $scope.name=$scope.y.firstName;
-  $scope.manager=$scope.y.manager;
+  $scope.manager=/*$scope.y.manager*/false;
   $scope.proc=false;
   $scope.logout=function()
     {

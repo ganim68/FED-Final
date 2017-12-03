@@ -1,26 +1,25 @@
-nihol.controller("usersCtrl",function($scope,$location,$http,activeUser,User){
+nihol.controller("usersCtrl",function($scope,$rootScope,$location,$http,activeUser,User){
     
     $scope.y=activeUser.get();
     $scope.name=$scope.y.firstName;
     $scope.tmp=new User("","","","",false);
     $scope.password;
     $scope.index=0;
-    $scope.ddd=new Date();
-    $http.get("app/data/users.json").then(function (response) {
-        $scope.users = [];
+    /*$http.get("app/data/users.json").then(function (response) {
+    $scope.users = [];
         for (var i = 0; i < response.data.length; i++) {
             $scope.users.push(new User(response.data[i]));
         }
-    });
+    });*/
     $scope.add=function()
         {
-            $scope.users.push($scope.tmp);
+            $rootScope.users.push($scope.tmp);
         }
     $scope.getUser=function(str)
         {
-            for (var i=0;i<$scope.users.length;i++)
+            for (var i=0;i<$rootScope.users.length;i++)
                 {
-                   if($scope.users[i].firstName===str)
+                   if($rootScope.users[i].firstName===str)
                    $scope.index=i;
                     return i;
                 }
@@ -29,9 +28,14 @@ nihol.controller("usersCtrl",function($scope,$location,$http,activeUser,User){
         {
           $location.path("/main");
         }      
-    /*scope.update(selectedUser)
+    $scope.update =function(selectedUser)
     {
-        var i=$scope.users.indexOf(selectedUser);
-        $scope.users[i].firstName=selectedUser.firstName;
-    }*/       
+        var i=$rootScope.users.indexOf(selectedUser);
+        $rootScope.users[i].firstName=selectedUser.firstName;
+        $rootScope.users[i].lastName=selectedUser.lastName;
+        $rootScope.users[i].manager=selectedUser.manager;
+        $rootScope.users[i].password=selectedUser.password;
+        $rootScope.users[i].manager=selectedUser.manager;
+        $rootScope.users[i].active=selectedUser.active;
+    }       
   })

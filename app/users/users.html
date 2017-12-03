@@ -1,11 +1,15 @@
-users page
-<br>
-<h4 class="date">{{ddd |date:"dd/MM/yyyy"}}</h4>
+<div class="jumbotron">
+    <div class="container">
+        <h4 class="date">{{ddd |date:"HH:mm:ss dd/MM/yyyy"}}</h4>
+    </div>
+</div>
+
+
 <a class="btn btn-default btn-lg" ng-click="back();">חזרה</a>
 <a class="btn btn-default btn-lg" ng-click="proc=false;">הוספת משתמש</a>
 <a class="btn btn-default btn-lg" ng-click="proc=true;">עדכון משתמש</a>
 
-                 <!--User Update-->
+<!--User Update-->
 <div ng-show="proc" class="container user-form">
     <select ng-model="selectedUser" ng-options="x.firstName for x in users">
         <!--<option value="">בחר משתמש</option>
@@ -38,13 +42,17 @@ users page
                 <label class="control-label col-sm-2" for="pwd">סיסמה :</label>
             </div>
             <div class="form-group">
-
                 <div class="col-sm-10">
                     <input type="checkbox" class="form-control" id="mng" placeholder="" ng-model="selectedUser.manager">
                 </div>
                 <label class="control-label col-sm-2" for="mng">מנהל כן/לא:</label>
             </div>
-
+            <div class="form-group">
+                <div class="col-sm-10">
+                    <input type="checkbox" class="form-control" id="mng" placeholder="" ng-model="selectedUser.active">
+                </div>
+                <label class="control-label col-sm-2" for="mng">מנהל כן/לא:</label>
+            </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                     <button type="summit" class="btn btn-default pull-right" ng-click="update(selectedUser)">עדכן</button>
@@ -52,10 +60,15 @@ users page
             </div>
         </form>
     </div>
-
+        <!-- form test -->
+    {{selectedUser.firstName + " " +selectedUser.lastName}}
+    <br> {{selectedUser.email}}
+    <br> {{selectedUser.password}}
+    <br> {{selectedUser.manager}}
+    <br> {{selectedUser.active}}
 </div>
 
-            <!--User add-->
+<!--User add-->
 <div ng-show="!proc" class="container user-form">
     <form class="form-horizontal">
         <div class="form-group">
@@ -77,36 +90,41 @@ users page
             <label class="control-label col-sm-2" for="eml">דואר אלקטרוני</label>
         </div>
         <div class="form-group">
-
             <div class="col-sm-10">
                 <input type="password" class="form-control" id="pwd" placeholder="הזן סיסמה" ng-model="tmp.password">
             </div>
             <label class="control-label col-sm-2" for="pwd">סיסמה :</label>
         </div>
         <div class="form-group">
-
             <div class="col-sm-10">
                 <input type="password" class="form-control" id="rpwd" placeholder="חזר על הסיסמה" ng-model="password">
             </div>
             <label class="control-label col-sm-2" for="rpwd">אימות סיסמה :</label>
         </div>
         <div class="form-group">
-
             <div class="col-sm-10">
                 <input type="checkbox" class="form-control" id="mng" placeholder="" ng-model="tmp.manager">
             </div>
             <label class="control-label col-sm-2" for="mng">מנהל כן/לא:</label>
         </div>
-
+        <div class="form-group">
+            <div class="col-sm-10">
+                <input type="checkbox" class="form-control" id="mng" placeholder="" ng-model="tmp.active">
+            </div>
+            <label class="control-label col-sm-2" for="mng">מנהל כן/לא:</label>
+        </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <button type="summit" class="btn btn-default pull-right" ng-click="add()">הוסף</button>
             </div>
         </div>
     </form>
+        <!-- form test -->
+    {{tmp.firstName + " " +tmp.lastName}}
+    <br> {{tmp.email}}
+    <br> {{tmp.password}}
+    <br> {{password}}
+    <br> {{tmp.manager}}
+    <br> {{tmp.active}}
 </div>
-{{tmp.firstName + " " +tmp.lastName}}
-<br> {{tmp.email}}
-<br> {{tmp.password}}
-<br> {{password}}
-<br> {{tmp.manager}}
+}

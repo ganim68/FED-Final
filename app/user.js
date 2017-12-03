@@ -6,6 +6,7 @@ nihol.factory("User", function(){
         this.email = tmpObject.email;
         this.password = tmpObject.password;
         this.manager = tmpObject.manager;
+        this.active=tmpObject.active;
     };
 
     return User;

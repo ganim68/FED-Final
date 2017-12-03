@@ -1,13 +1,13 @@
-nihol.controller("LoginCtrl", function ($scope, $uibModalInstance, $http, $location, activeUser, User) {
+nihol.controller("LoginCtrl", function ($scope , $rootScope,$uibModalInstance, $http, $location, activeUser, User) {
 
   // TO DO: Detele this
     $scope.uname = "Ganim";
     $scope.password = "gan123";
-
+    //$rootScope.users = [];
     $http.get("app/data/users.json").then(function (response) {
-        $scope.users = [];
+        
         for (var i = 0; i < response.data.length; i++) {
-            $scope.users.push(new User(response.data[i]));
+            $rootScope.users.push(new User(response.data[i]));
         }
     });
 
@@ -30,9 +30,9 @@ nihol.controller("LoginCtrl", function ($scope, $uibModalInstance, $http, $locat
     }
 
     var getLoggedInUser = function() {
-        for (var i = 0; i < $scope.users.length; i++) {
-            if ($scope.users[i].firstName === $scope.uname && $scope.users[i].password === $scope.password) {
-                return $scope.users[i];
+        for (var i = 0; i < $rootScope.users.length; i++) {
+            if ($rootScope.users[i].firstName === $scope.uname && $rootScope.users[i].password === $scope.password) {
+                return $rootScope.users[i];
             }
         }
         return null;
