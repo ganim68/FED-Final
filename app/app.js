@@ -17,6 +17,14 @@ nihol.config(function($routeProvider) {
         templateUrl: "app/users/users.html",
         controller: "usersCtrl"
     })
+    .when("/customers", {
+        templateUrl: "app/customers/customers.html",
+        controller: "customersCtrl"
+    })
+    .when("/items", {
+        templateUrl: "app/items/items.html",
+        controller: "itemsCtrl"
+    })
     .otherwise({
         templateUrl: "app/home/home.html",
         controller: "HomeCtrl"

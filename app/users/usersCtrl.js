@@ -5,15 +5,10 @@ nihol.controller("usersCtrl",function($scope,$rootScope,$location,$http,activeUs
     $scope.tmp=new User("","","","",false);
     $scope.password;
     $scope.index=0;
-    /*$http.get("app/data/users.json").then(function (response) {
-    $scope.users = [];
-        for (var i = 0; i < response.data.length; i++) {
-            $scope.users.push(new User(response.data[i]));
-        }
-    });*/
+    
     $scope.add=function()
         {
-            $rootScope.users.push($scope.tmp);
+            $rootScope.users.push(new Item($scope.tmp.firstName,$scope.tmp.lastName,$scope.tmp.email,$scope.tmp.password,$scope.tmp.manager,active));
         }
     $scope.getUser=function(str)
         {
@@ -33,7 +28,7 @@ nihol.controller("usersCtrl",function($scope,$rootScope,$location,$http,activeUs
         var i=$rootScope.users.indexOf(selectedUser);
         $rootScope.users[i].firstName=selectedUser.firstName;
         $rootScope.users[i].lastName=selectedUser.lastName;
-        $rootScope.users[i].manager=selectedUser.manager;
+        $rootScope.users[i].email=selectedUser.email;
         $rootScope.users[i].password=selectedUser.password;
         $rootScope.users[i].manager=selectedUser.manager;
         $rootScope.users[i].active=selectedUser.active;

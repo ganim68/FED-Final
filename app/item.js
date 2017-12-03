@@ -1,7 +1,7 @@
 nihol.factory("Item", function(){
     function Item(tmpObject) 
         {
-            this.name = tmpObject.mame;
+            this.iname = tmpObject.iname;
             this.code = tmpObject.code;
             this.price = tmpObject.price;
         };

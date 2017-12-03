@@ -1,22 +1,22 @@
 [
     {
-        "name" : "Desktop CPU",
-        "code" : "c1",
-        "price" :1780
+        "iname":"Desktop CPU",
+        "code":"c1",
+        "price":1780
     },
     {
-        "name" : "Printer",
-        "code" : "p1",
-        "price" : 320
+        "iname":"Printer",
+        "code":"p1",
+        "price":320
     },
     {
-        "name" : "Mouse",
-        "code" : "m1",
+        "iname":"Mouse",
+        "code":"m1",
         "price" :35
     },
     {
-        "name" : "Keyboard",
-        "code" : "k1",
-        "price" : 85
+        "iname":"Keyboard",
+        "code":"k1",
+        "price":85
     }
 ]

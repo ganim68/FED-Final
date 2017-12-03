@@ -19,13 +19,13 @@
         <form class="form-horizontal ">
             <div class="form-group">
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="fsname" placeholder="Enter first name" ng-model="selectedUser.firstName">
+                    <input type="text"  id="fsname" placeholder="Enter first name" ng-model="selectedUser.firstName">
                 </div>
                 <label class="control-label col-sm-2" for="fsname">שם פרטי :</label>
             </div>
             <div class="form-group">
                 <div class="col-sm-10">
-                    <input type="texe" class="form-control" id="lnm" placeholder="Enter last name" ng-model="selectedUser.lastName">
+                    <input type="texe"  id="lnm" placeholder="Enter last name" ng-model="selectedUser.lastName">
                 </div>
                 <label class="control-label col-sm-2" for="lnm">שם משפחה :</label>
             </div>
@@ -49,13 +49,21 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-10">
-                    <input type="checkbox" class="form-control" id="mng" placeholder="" ng-model="selectedUser.active">
+                    <input type="checkbox"  id="mng" ng-model="selectedUser.active">
                 </div>
                 <label class="control-label col-sm-2" for="mng">מנהל כן/לא:</label>
             </div>
+            
+                  <div class="form-group">        
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label><input type="checkbox" ng-model="selectedUser.active"> פעיל כן/לא</label>
+                      </div>
+                    </div>
+                  </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button type="summit" class="btn btn-default pull-right" ng-click="update(selectedUser)">עדכן</button>
+                    <button type="submit" class="btn btn-default pull-right" ng-click="update(selectedUser)">עדכן</button>
                 </div>
             </div>
         </form>
@@ -111,7 +119,7 @@
             <div class="col-sm-10">
                 <input type="checkbox" class="form-control" id="mng" placeholder="" ng-model="tmp.active">
             </div>
-            <label class="control-label col-sm-2" for="mng">מנהל כן/לא:</label>
+            <label class="control-label col-sm-2" for="mng">פעיל כן/לא:</label>
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">

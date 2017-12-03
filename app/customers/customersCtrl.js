@@ -1,22 +1,16 @@
-nihol.controller("itemsCtrl", function ($scope, $rootScope, $location, $http, activeUser, Item) {
-    $scope.tmp = new Item("", "", 0);
-    if (!$rootScope.items.length) {
-        $http.get("app/data/items.json").then(function (response) {
-            for (var i = 0; i < response.data.length; i++) {
-                $rootScope.items.push(new Item(response.data[i]));
-            }
-        });
-    }
-
-    $scope.addItem = function () {
-        $rootScope.items.push(new Item($scope.tmp.iname, $scope.tmp.code, $scope.tmp.price));
-    };
-    /*$scope.y=activeUser.get();
+nihol.controller("usersCtrl",function($scope,$rootScope,$location,$http,activeUser,User){
+    
+    $scope.y=activeUser.get();
     $scope.name=$scope.y.firstName;
     $scope.tmp=new User("","","","",false);
     $scope.password;
     $scope.index=0;
-    
+    /*$http.get("app/data/users.json").then(function (response) {
+    $scope.users = [];
+        for (var i = 0; i < response.data.length; i++) {
+            $scope.users.push(new User(response.data[i]));
+        }
+    });*/
     $scope.add=function()
         {
             $rootScope.users.push($scope.tmp);
@@ -43,5 +37,5 @@ nihol.controller("itemsCtrl", function ($scope, $rootScope, $location, $http, ac
         $rootScope.users[i].password=selectedUser.password;
         $rootScope.users[i].manager=selectedUser.manager;
         $rootScope.users[i].active=selectedUser.active;
-    } */
-})
+    }       
+  })
