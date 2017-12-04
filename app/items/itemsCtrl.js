@@ -1,15 +1,9 @@
 nihol.controller("itemsCtrl", function ($scope, $rootScope, $location, $http, activeUser, Item) {
-    $scope.tmp = new Item("", "", 0);
-    if (!$rootScope.items.length) {
-        $http.get("app/data/items.json").then(function (response) {
-            for (var i = 0; i < response.data.length; i++) {
-                $rootScope.items.push(new Item(response.data[i]));
-            }
-        });
-    }
+    $scope.tmp = {};
+
 
     $scope.addItem = function () {
-        $rootScope.items.push(new Item($scope.tmp.iname, $scope.tmp.code, $scope.tmp.price));
+        $rootScope.items.push(new Item($scope.tmp));
     };
     /*$scope.y=activeUser.get();
     $scope.name=$scope.y.firstName;
