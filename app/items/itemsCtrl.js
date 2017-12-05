@@ -1,10 +1,14 @@
 nihol.controller("itemsCtrl", function ($scope, $rootScope, $location, $http, activeUser, Item) {
     $scope.tmp = {};
 
+    
 
     $scope.addItem = function () {
         $rootScope.items.push(new Item($scope.tmp));
     };
+
+    
+
     /*$scope.y=activeUser.get();
     $scope.name=$scope.y.firstName;
     $scope.tmp=new User("","","","",false);

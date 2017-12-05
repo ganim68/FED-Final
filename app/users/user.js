@@ -36,6 +36,7 @@ nihol.factory("activeUser", function(User){
         isLoggedIn: isLoggedIn,
         login: login,
         logout: logout,
-        get: get
+        get: get,
+        currentUser: user
     };   
 });
