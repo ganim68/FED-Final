@@ -4,14 +4,39 @@
     <div class="container">
         <h1>ניהול מלאי</h1>
         <p>{{date |date:"HH:mm:ss dd/MM/yyyy"}}</p>
-        <p>
-            <a class="btn btn-primary btn-lg">Learn more</a>
-        </p>
+        <a class="btn btn-primary btn-lg" ng-click="back()">חזרה</a>
+        <a class="btn btn-primary btn-lg" ng-click="newItem()">הוספת פריט חדש</a>
     </div>
 </div>
 <div>
     <form>
         <label for="part">קוד פריט :</label>
-        <input type="text" id="part" ng-model="tmp.code">
+        <select ng-model="tmp" ng-options="x.iname for x in items"></select>
+        <input type="number" id="quantity" ng-model="tmp.quantity">
+        <a class="btn btn-primary btn-lg" ng-click="addItem()">אישור</a>
+        <label style="border:1px solid blue";>{{tmp.iname + tmp.quantity}}</label>
+        
     </form>
 </div>
+<div>
+    <table class="table-bordered">
+        <tr>
+            <th>שם פריט</th><th>כמות</th>
+        </tr>
+        <tr ng-repeat="y in itemsToAdd">
+            <td>{{y.code}}</td><td>{{y.quantity}}</td>
+        </tr>
+    </table>
+</div>
+<div>
+    <h2>כמות במחסן</h2>    
+    <table class="table-bordered">
+            <tr>
+                <th>קוד פריט</th><th>כמות</th>
+            </tr>
+            <tr ng-repeat="z in store">
+                <td>{{z.code}}</td><td>{{z.quantity}}</td>
+            </tr>
+        </table>
+    </div>
+<a class="btn btn-primary btn-lg" ng-click="updateStore()">אישור</a>

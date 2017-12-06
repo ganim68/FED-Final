@@ -49,6 +49,7 @@ nihol.controller("mainCtrl",function($scope,$http,$rootScope, $location,activeUs
   
   $scope.addItem=function()
     {
+      $rootScope.loc="/main";
       $location.path("/items");
     }
   $scope.store=function()

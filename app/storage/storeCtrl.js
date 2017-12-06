@@ -3,13 +3,39 @@ nihol.controller("storeCtrl", function ($scope, $rootScope, $location, $http,Ite
     $scope.tmp=new Store("",0);
     $scope.date=new Date();
     
-    $scope.getItemByCode = function (code) {
-        for (var i=0;i<$rootScope.items.length;i++)
+    $scope.getItem = function (tmp) {
+        for (var i=0;i<$rootScope.store.length;i++)
             {
-                if($rootScope.items[i].code===code)
-                    return $rootScope.items[i];
+                if($rootScope.store[i].code===tmp.code){
+                    alert("2" + JSON.stringify($scope.store[i]));
+                    return $rootScope.store[i];
+                }
+                
             }
     };
+    $scope.updateStore=function()
+        {
+            for(var i=0;i<$scope.itemsToAdd.length;i++)
+                {
+                  alert("1" + JSON.stringify($scope.itemsToAdd[0]));
+                    $scope.getItem($scope.itemsToAdd[i]).quantity+=$scope.itemsToAdd[i].quantity; 
+                }
+            $location.path("/main");    
+        };
+    $scope.back=function()
+    {
+      $location.path("/main");
+    } 
+    
+    $scope.newItem=function()
+        {
+            $rootScope.loc="/store";
+            $location.path("/items");
+        }
+    $scope.addItem=function()
+        {
+            $scope.itemsToAdd.push(new Store($scope.tmp));  
+        }    
     /*$scope.addItem = function () {
         if($scope.tmp.length)
             {

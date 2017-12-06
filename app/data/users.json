@@ -4,15 +4,15 @@
         "lastName": "Gadban",
         "email":"ganim@ganim.com",
         "password": "gan123",
-        "manager":"true",
-        "active":"true"
+        "manager":true,
+        "active":true
     },
     {
         "firstName":"Anaam",
         "lastName": "Gadban",
         "email":"anaam@ganim.com",
         "password": "ana123",
-        "manager":"false",
-        "active":"true"
+        "manager":false,
+        "active":true
     }
 ]

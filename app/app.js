@@ -7,7 +7,8 @@ nihol.config(function($routeProvider) {
         controller: "HomeCtrl"
     })
     .when("/sale", {
-        templateUrl: "app/sale/sale.html"
+        templateUrl: "app/sale/sale.html",
+        controller: "saleCtrl"
     })
     .when("/main", {
         templateUrl: "app/main/main.html",

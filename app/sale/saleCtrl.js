@@ -1,29 +1,15 @@
-nihol.controller("itemsCtrl", function ($scope, $rootScope, $location, $http, activeUser, Item) {
-    $scope.tmp = {};
-
+nihol.controller("saleCtrl",function($scope,$rootScope,$location,$http,activeUser,User){
     
-
-    $scope.addItem = function () {
-        $rootScope.items.push(new Item($scope.tmp));
-    };
-   
-    $scope.back=function()
-    {
-      $location.path($rootScope.loc);
-    }      
-    
-
-    /*$scope.y=activeUser.get();
+    $scope.y=activeUser.get();
     $scope.name=$scope.y.firstName;
     $scope.tmp=new User("","","","",false);
-    $scope.password;
     $scope.index=0;
     
-    $scope.add=function()
+   /* $scope.add=function()
         {
-            $rootScope.users.push($scope.tmp);
+            
         }
-    $scope.getUser=function(str)
+   /* $scope.getUser=function(str)
         {
             for (var i=0;i<$rootScope.users.length;i++)
                 {
@@ -31,19 +17,19 @@ nihol.controller("itemsCtrl", function ($scope, $rootScope, $location, $http, ac
                    $scope.index=i;
                     return i;
                 }
-        }
+        }*/
         $scope.back=function()
         {
           $location.path("/main");
         }      
-    $scope.update =function(selectedUser)
+   /* $scope.update =function(selectedUser)
     {
         var i=$rootScope.users.indexOf(selectedUser);
         $rootScope.users[i].firstName=selectedUser.firstName;
         $rootScope.users[i].lastName=selectedUser.lastName;
-        $rootScope.users[i].manager=selectedUser.manager;
+        $rootScope.users[i].email=selectedUser.email;
         $rootScope.users[i].password=selectedUser.password;
         $rootScope.users[i].manager=selectedUser.manager;
         $rootScope.users[i].active=selectedUser.active;
-    } */
-})
+    }*/       
+  })
