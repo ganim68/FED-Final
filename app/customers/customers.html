@@ -1,1 +1,15 @@
-<h1>customers Page</h1>
+<h1>ניהול לקוחות</h1>
+<p>
+    <a class="btn btn-primary btn-lg" ng-click="back()">חזרה</a>
+ </p>
+<div class="container">
+    <h1>לקוחות קיימים</h1>
+    <table class="table-bordered">
+        <tr>
+            <th>שם לקוח</th><th>כתובת</th><th>טלפון</th>
+        </tr>
+        <tr ng-repeat="y in customers">
+            <td>{{y.name}}</td><td>{{y.address}}</td><td>{{y.telephone}}</td>
+        </tr>
+    </table>
+</div>

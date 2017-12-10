@@ -1,10 +1,10 @@
-nihol.controller("mainCtrl",function($scope,$http,$rootScope, $location,activeUser,User,Item,Store){
+nihol.controller("mainCtrl",function($scope,$http,$rootScope, $location,activeUser,User,Item,Store,Customer){
   
  if (!activeUser.isLoggedIn()) {
     $location.path("/");
     return;
   }
-
+      //-------------------READING DATS FILES--------------------
       //reading the items.json file
     if (!$rootScope.items.length)
       {
@@ -24,7 +24,19 @@ nihol.controller("mainCtrl",function($scope,$http,$rootScope, $location,activeUs
               $rootScope.store.push(new Store(response.data[i]));
           }
       });
-      }  
+      }
+      //reading the CUSTOMERS.json file
+      if (!$rootScope.store.length)
+      {
+        $http.get("app/data/customers.json").then(function (response) {
+          
+          for (var i = 0; i < response.data.length; i++) {
+              $rootScope.customers.push(new Customer(response.data[i]));
+          }
+      });
+      alert("1" + JSON.stringify($rootScope.customers[0]));
+      }
+      //---------------------------------------------------------
   $scope.x="Welcome";
   $scope.y=activeUser.get();
   $scope.name=$scope.y.firstName;
@@ -55,5 +67,9 @@ nihol.controller("mainCtrl",function($scope,$http,$rootScope, $location,activeUs
   $scope.store=function()
     {
       $location.path("/store");
-    }  
+    } 
+  $scope.manageCustomers=function()
+    {
+      $location.path("/customers");
+    }   
 })

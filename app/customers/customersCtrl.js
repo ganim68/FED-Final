@@ -1,16 +1,18 @@
-nihol.controller("usersCtrl",function($scope,$rootScope,$location,$http,activeUser,User){
+nihol.controller("customersCtrl",function($scope,$rootScope,$location,$http,activeUser,User,Customer){
     
     $scope.y=activeUser.get();
     $scope.name=$scope.y.firstName;
     $scope.tmp=new User("","","","",false);
     $scope.password;
     $scope.index=0;
-    /*$http.get("app/data/users.json").then(function (response) {
-    $scope.users = [];
-        for (var i = 0; i < response.data.length; i++) {
-            $scope.users.push(new User(response.data[i]));
-        }
-    });*/
+    
+    
+
+    $scope.back=function()
+        {
+          $location.path("/main");
+        }      
+    /*
     $scope.add=function()
         {
             $rootScope.users.push($scope.tmp);
@@ -24,10 +26,7 @@ nihol.controller("usersCtrl",function($scope,$rootScope,$location,$http,activeUs
                     return i;
                 }
         }
-        $scope.back=function()
-        {
-          $location.path("/main");
-        }      
+ 
     $scope.update =function(selectedUser)
     {
         var i=$rootScope.users.indexOf(selectedUser);
@@ -37,5 +36,5 @@ nihol.controller("usersCtrl",function($scope,$rootScope,$location,$http,activeUs
         $rootScope.users[i].password=selectedUser.password;
         $rootScope.users[i].manager=selectedUser.manager;
         $rootScope.users[i].active=selectedUser.active;
-    }       
+    }*/       
   })

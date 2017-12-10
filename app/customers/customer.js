@@ -1,5 +1,5 @@
 nihol.factory("Customer", function(){
-    function User(tmpObject)
+    function Customer(tmpObject)
       {
         this.name = tmpObject.name;
         this.address = tmpObject.address;
