@@ -13,26 +13,5 @@ nihol.controller("HomeCtrl", function ($http,$scope, $rootScope, $uibModal,Item,
             controller: "LoginCtrl"
         })
     }
-    
-    
-    
-    
-    /*//reading the storage.json file
-    if (!$rootScope.store.length)
-    {
-       $http.get("app/data/storage.json").then(function (response) {
-           for (var i = 0; i < response.data.length; i++) {
-               $rootScope.store.push(new Store(response.data[i]));
-           }
-       });
-    }
-        //reading the items.json file
-    if (!$rootScope.items.length)
-     {
-        $http.get("app/data/items.json").then(function (response) {
-            for (var i = 0; i < response.data.length; i++) {
-                $rootScope.items.push(new Item(response.data[i]));
-            }
-        });
-    }*/
+    //alert("1" + JSON.stringify($rootScope.customers[0]));
 });

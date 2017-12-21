@@ -1,10 +1,12 @@
-nihol.controller("itemsCtrl", function ($scope, $rootScope, $location, $http, activeUser, Item) {
+nihol.controller("itemsCtrl", function ($scope, $rootScope, $location, $http, activeUser, Item,Store) {
     $scope.tmp = {};
 
     
 
     $scope.addItem = function () {
+        var newItem={code:$scope.tmp.code,quantity:0};
         $rootScope.items.push(new Item($scope.tmp));
+        $rootScope.store.push(new Store(newItem));
     };
    
     $scope.back=function()

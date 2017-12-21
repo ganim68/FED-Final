@@ -34,7 +34,7 @@ nihol.controller("mainCtrl",function($scope,$http,$rootScope, $location,activeUs
               $rootScope.customers.push(new Customer(response.data[i]));
           }
       });
-      alert("1" + JSON.stringify($rootScope.customers[0]));
+     
       }
       //---------------------------------------------------------
   $scope.x="Welcome";
